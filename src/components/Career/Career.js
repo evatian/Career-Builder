@@ -1,6 +1,8 @@
 import React from 'react';
 import classes from './Career.css';
+
 import SkillsForCareer from './SkillsForCareer/SkillsForCareer';
+
 const career = (props)=>{
 	let transformedSkills = Object.keys(props.skills)
 	.map(igKey=>{
@@ -13,14 +15,18 @@ const career = (props)=>{
 		.reduce((arr, el)=>{
 			return arr.concat(el)
 		},[]);
-	if(transformedSkills.length==0){
+	if(transformedSkills.length===0){
 		transformedSkills=<p>Please start adding skills!</p>;
 	}
 	return(
 		<div className={classes.Career}>
-			 <SkillsForCareer type="codingSkills-top" />
+			 <div className={classes.top}>I am a SoftWare Engineer Now</div>
 			 {transformedSkills}
-			 <SkillsForCareer type="codingSkills-bottom" />
+			 <div className={classes.bottom}>
+			 	<h2>
+			 		Passion For SoftWare Engineering
+			 	</h2>
+			 </div>
 
 		</div>
 		);

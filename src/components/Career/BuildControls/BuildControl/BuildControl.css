@@ -9,11 +9,15 @@
     display: block;
     font: inherit;
     padding: 5px;
-    margin:0 5px;
-    width: 80px;
+    margin:0 20px;
+    width: 120px;
     border: 1px solid #AA6817;
     cursor: pointer;
     outline: none;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3); 
+    -webkit-border-radius: .5em;  
+    -moz-border-radius: .5em;  
+    border-radius: .5em;  
 
 }
 
@@ -37,12 +41,12 @@
 }
 
 .BuildControl .Less {  
-    background-color: #D39952;
+    background-color: #FFD047;
     color: white;
 }
 
 .BuildControl .More {
-    background-color: #8F5E1E;
+    background-color: #E87100;
     color: white;
 }
 

@@ -6,6 +6,7 @@ const controls=[
 	{label:'Python',type:'Python'},
 	{label:'PHP',type:'PHP'},
 	{label:'SQL',type:'SQL'},
+	{label:'JavaScript',type:'JavaScript'},
 	{label:'RubyOnRail',type:'RubyOnRail'},
 
 ];
@@ -13,7 +14,7 @@ const controls=[
 const buildControls=(props) =>(
 	
 	<div className={classes.BuildControls}>
-	<p>Current Hour:{props.hour}</p>
+	<p className={classes.current}>Current Learning Hours:{props.hour}</p>
 	{
 		controls.map(ctrl=>(
 			<BuildControl 
@@ -26,7 +27,8 @@ const buildControls=(props) =>(
 			))}
 
 	<button className={classes.FinishButton}
-	disabled={!props.finishable}>Finish Building</button>
+	disabled={!props.finishable}
+	onClick={props.finished}>Finish Building</button>
 	</div>
 );
 

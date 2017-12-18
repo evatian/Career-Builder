@@ -8,24 +8,29 @@ import Aux from'../../hoc/Aux';
 
 import Modal from'../../components/UI/Modal/Modal';
 
+import SkillSummary from'../../components/Career/CareerSummary/CareerSummary';
+
 const LEARN_HOURS={
 	PHP:4,
 	SQL:3,
 	Python:5,
+	JavaScript:4,
 	RubyOnRail:6
 }
 class CareerBuilder extends Component{
 	
 state={
 	skills:{
+		Python:0,
 		PHP:0,
 		SQL:0,
-		Python:0,
+		JavaScript:0,
 		RubyOnRail:0
 	},
 
 	totalHour:0,
-	finishable:false
+	finishable:false,
+	finishing:false
 }
 
 	updateFinishState(skills){
@@ -52,7 +57,7 @@ state={
 		const newHour=oldHour+hourAddition;
 		this.setState({
 			totalHour:newHour,skills:updatedSkills
-		})
+		});
 		this.updateFinishState(updatedSkills);
 	}
 
@@ -75,23 +80,42 @@ state={
 
 		this.updateFinishState(updatedSkills);
 	}
+
+	finishHandler=()=> {
+		this.setState({finishing:true});
+	}
+
+	finishCancelHandler=()=>{
+		this.setState({finishing:false});
+	}
+
+	buildContinueHandler=()=>{
+		alert('You Continue!');
+	}
 	render(){
 		const disabledInfo={
 			...this.state.skills
-		};
+		}
 
 		for(let key in disabledInfo){
 			disabledInfo[key]=disabledInfo[key]<=0
 		}
 		return (
 			<Aux>
-			    <Modal />
+			    <Modal show={this.state.finishing}
+			    modalClosed={this.finishCancelHandler}>
+			    	<SkillSummary skills={this.state.skills}
+			    	hour={this.state.totalHour}
+			    	finishCancel={this.finishCancelHandler}
+			    	buildContinue={this.buildContinueHandler}/>
+			    </Modal>
 				<Career skills={this.state.skills}/>
 				<BuildControls 
 				 skillsAdded={this.addSkillsHandler}
 				 skillsRemoved={this.removeSkillsHandler}
 				 disabled={disabledInfo}
 				 finishable={this.state.finishable}
+				 finished={this.finishHandler}
 				 hour={this.state.totalHour}/>			
 			</Aux>
 			);

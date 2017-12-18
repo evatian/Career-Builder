@@ -1,13 +1,35 @@
 .Career{
 	width:100%;
 	margin:auto;
-	height:300px;
+	height:450px;
 	overflow:scroll;
 	text-align: center;
 	font-weight:bold;
 	font-size:1.2rem;
+
+	font-family: 'Risque', cursive;
 }
 
+.top {
+    width: 30%;
+    height: 20%;
+    margin: 2% auto;
+    padding-bottom: 40px;
+    -webkit-text-stroke:1px red;
+    background: linear-gradient(#ffc4b7, #df5738);
+    border-radius: 20px;
+
+}
+.bottom{
+	width: 90%;
+    height: 20%;
+    margin: 1% auto;
+    background: linear-gradient(#d4c2f3, #af8fe8);
+    border-radius: 20px;
+	color:purple;
+	font-weight: 800;
+	font-family:'Risque', cursive;
+}
 
 @media(min-width:1000 px) and( min-height:700){
 	.Career{

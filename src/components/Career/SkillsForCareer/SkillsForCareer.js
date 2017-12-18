@@ -1,42 +1,42 @@
 
-import React , {Component}from 'react';
+import React , {Component} from 'react';
 import PropTypes from 'prop-types';
 import classes from './SkillsForCareer.css';
 class SkillsforCareer extends Component
 {
+
 	render(){
 		let skills=null;
+		
 	switch(this.props.type){
-		case ('codingSkills-bottom'):
-			skills=<div className={classes.codingSkillsBottom}>
-			        </div>
-		break;
+		case('Python'):
 
-		case('codingSkills-top'):
-			skills=(
-			<div className={classes.codingSkillsTop}>
-			</div>			
-					);
+			skills=<div className={classes.Python}>Python:Learned</div>;
+
 			break;
+
 		case('PHP'):
 
-			skills=<div className={classes.PHP}></div>;
+			skills=<div className={classes.PHP}>PHP:Learned</div>;
 
 			break;
 		case('SQL'):
 
-			skills=<div className={classes.SQL}></div>;
+			skills=<div className={classes.SQL}>SQL:Learned</div>;
 
 			break;
-	    case('Python'):
+	    
+		case('JavaScript'):
 
-			skills=<div className={classes.Python}></div>;
+			skills=<div className={classes.JavaScript}>
+			JavaScript:Learned</div>;
 
 			break;
 	    
 	    case('RubyOnRail'):
 
-			skills=<div className={classes.RubyOnRail}></div>;
+			skills=<div className={classes.RubyOnRail}>
+			RubyOnRail:Learned</div>;
 
 			break;
 		default: skills=null;	
@@ -46,6 +46,7 @@ class SkillsforCareer extends Component
  
 	}
 };
+ 
 
 SkillsforCareer.PropTypes={
 	type: PropTypes.string.isRequired
